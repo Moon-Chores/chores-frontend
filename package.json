@@ -42,7 +42,9 @@
     "workbox-range-requests": "^5.1.4",
     "workbox-routing": "^5.1.4",
     "workbox-strategies": "^5.1.4",
-    "workbox-streams": "^5.1.4"
+    "workbox-streams": "^5.1.4",
+    "eslint-config-prettier": "8.5.0",
+    "prettier": "2.6.2"
   },
   "scripts": {
     "start": "TAILWIND_MODE=watch craco start",
@@ -50,7 +52,9 @@
     "ionic:serve": "TAILWIND_MODE=watch craco start",
     "ionic:build": "craco build",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
+    "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -73,6 +77,7 @@
   "devDependencies": {
     "@capacitor/cli": "3.6.0",
     "autoprefixer": "^9.8.8",
+    "eslint-plugin-prettier": "4.0.0",
     "postcss": "^8.4.14",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   },
