@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <PageWithGrid>
-      <IonRow className='h-[41%] items-end'>
+      <IonRow className='h-[38%] items-end'>
         <IonGrid className='w-full'>
           <IonRow className='justify-center'>
             <AppLogo />
@@ -27,7 +27,7 @@ const Home = () => {
           </IonRow>
         </IonGrid>
       </IonRow>
-      <IonRow className='h-[39%] items-start'>
+      <IonRow className='h-[40%] items-start'>
         <IonGrid className='w-full'>
           <IonRow className='px-5 pt-1'>
             <InputWithLabel className='mr-5' type='email' labelText='Email' placeholder='john.doe@gmail.com' />
@@ -38,7 +38,7 @@ const Home = () => {
           </IonRow>
         </IonGrid>
       </IonRow>
-      <IonRow className='h-[20%]'>
+      <IonRow className='h-[23%]'>
         <IonGrid>
           <IonRow className='justify-center'>
             <IonButton mode='ios' className='w-4/5 font-Inter text-xl h-12 font-light'>
