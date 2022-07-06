@@ -1,7 +1,6 @@
 const Routes = {
   authentication: {
-    login: '/auth/login',
-    signUp: '/auth/signUp',
+    home: '/auth/home',
     forgetPassword: '/auth/forgetPassword',
     setPassword: '/auth/setPassword',
     confirmEmail: '/auth/confirmEmail',

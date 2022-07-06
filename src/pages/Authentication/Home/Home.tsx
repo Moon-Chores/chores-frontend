@@ -1,44 +1,48 @@
-import React from 'react';
-import { useHistory } from 'react-router';
-import Routes from '@/utilities/routes';
+import React, { useState } from 'react';
 
 import { IonGrid, IonRow, IonButton, SegmentChangeEventDetail } from '@ionic/react';
 
 import AppLogo from '@components/Authentication/AppLogo';
 import InputWithLabel from '@/components/InputWithLabel';
 import AuthToggleSegment from '@components/Authentication/AuthToggleSegment';
-import PageWithGrid from '@/components/PageWithGrid';
+import PageWithGrid from '@components/PageWithGrid';
+import { AuthPageTypes } from '@components/Authentication/AuthToggleSegment/AuthToggleSegment';
 
-const Register = () => {
-  const history = useHistory();
+const Home = () => {
+  const [currentPage, setCurrentPage] = useState<AuthPageTypes>('SignIn');
 
   const pageToggleHandler = (e: CustomEvent<SegmentChangeEventDetail>) => {
-    if (e.detail.value !== 'SignIn') return;
-    history.push(Routes.authentication.login);
+    setCurrentPage(e.detail.value as AuthPageTypes);
   };
 
   return (
     <PageWithGrid>
-      <IonRow className='h-[33%] pb-4 items-end'>
-        <AppLogo />
-      </IonRow>
-      <IonRow className='h-[46%] items-start'>
+      <IonRow className='h-[41%] items-end'>
         <IonGrid className='w-full'>
           <IonRow className='justify-center'>
-            <AuthToggleSegment onChange={pageToggleHandler} value='SignUp' />
+            <AppLogo />
           </IonRow>
-          <IonRow className='px-5 pt-1'>
-            <InputWithLabel className='mr-5' type='email' labelText='Email' placeholder='john.doe@gmail.com' />
-            <InputWithLabel className='mr-5' type='password' labelText='Password' placeholder='8 characters, 1 capital' />
-            <InputWithLabel className='mr-5' type='password' labelText='Confirm Password' placeholder='8 characters, 1 capital' />
+          <IonRow>
+            <AuthToggleSegment onChange={pageToggleHandler} value={currentPage} />
           </IonRow>
         </IonGrid>
       </IonRow>
-      <IonRow className='h-[21%]'>
+      <IonRow className='h-[39%] items-start'>
+        <IonGrid className='w-full'>
+          <IonRow className='px-5 pt-1'>
+            <InputWithLabel className='mr-5' type='email' labelText='Email' placeholder='john.doe@gmail.com' />
+            <InputWithLabel className='mr-5' type='password' labelText='Password' placeholder='8 characters, 1 capital' />
+            {currentPage === 'SignUp' && (
+              <InputWithLabel className='mr-5' type='password' labelText='Confirm Password' placeholder='8 characters, 1 capital' />
+            )}
+          </IonRow>
+        </IonGrid>
+      </IonRow>
+      <IonRow className='h-[20%]'>
         <IonGrid>
           <IonRow className='justify-center'>
             <IonButton mode='ios' className='w-4/5 font-Inter text-xl h-12 font-light'>
-              Sign Up
+              {currentPage === 'SignUp' ? 'Sign Up' : 'Sign In'}
             </IonButton>
           </IonRow>
           <IonRow className='justify-center pt-3'>
@@ -50,4 +54,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Home;
