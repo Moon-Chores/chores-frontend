@@ -25,7 +25,7 @@ const Register = () => {
       <IonRow className='h-[46%] items-start'>
         <IonGrid className='w-full'>
           <IonRow className='justify-center'>
-            <AuthToggleSegment onChange={pageToggleHandler} value='SignIn' />
+            <AuthToggleSegment onChange={pageToggleHandler} value='SignUp' />
           </IonRow>
           <IonRow className='px-5 pt-1'>
             <InputWithLabel className='mr-5' type='email' labelText='Email' placeholder='john.doe@gmail.com' />
